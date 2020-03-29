@@ -6,11 +6,15 @@ Commands
 
 item
 Search For Item
+
 add item
 Add item that was searched
+
 code upc
 Find and add a UPC code in one command
+
 quit
 exit
+
 help
 Show Help

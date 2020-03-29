@@ -4,13 +4,13 @@ When more services work like cart and such I will add those as well.
 
 Commands
 
-> item
+item
 Search For Item
-> add item
+add item
 Add item that was searched
-> code upc
+code upc
 Find and add a UPC code in one command
-> quit
+quit
 exit
-> help
+help
 Show Help

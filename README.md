@@ -4,20 +4,20 @@ When more services work like cart and such I will add those as well.
 
 Commands
 
-&gt;  
+&gt; &lt;Item Name&gt;  
 Search for item 
 
-add item
+&gt; add item  
 Add item that was searched
 
-code upc
+&gt; code &lt;Item UPC&gt;  
 Find and add a UPC code in one command
 
-quit
+&gt; quit  
 exit
 
-cart
+&gt; cart  
 Show the items in your cart
 
-?
+&gt; ?  
 Show Help

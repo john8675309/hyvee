@@ -4,7 +4,7 @@ When more services work like cart and such I will add those as well.
 
 Commands
 
-&gt;
+&gt;  
 Search for item 
 
 add item

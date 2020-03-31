@@ -4,20 +4,24 @@ When more services work like cart and such I will add those as well.
 
 Commands
 
-&gt; &lt;Item Name&gt;  
-Search for item 
 
-&gt; add item  
-Add item that was searched
+Search for Item  
+&gt; &lt;item&gt;  
 
-&gt; code &lt;Item UPC&gt;  
-Find and add a UPC code in one command
-
+Quit Program  
 &gt; quit  
-exit
 
+Search and Add a UPC  
+&gt; code &lt;upc&gt;  
+
+Add an Item to the cart  
+&gt; add &lt;item id from search&gt;  
+
+View your cart  
 &gt; cart  
-Show the items in your cart
 
-&gt; ?  
-Show Help
+Add quantity to item in cart  
+&gt; addq &lt;item id from cart&gt;  
+
+Remove Quantity from cart  
+&gt; remq &lt;item id from cart&gt;  

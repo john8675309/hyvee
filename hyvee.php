@@ -277,7 +277,7 @@ while (42 == 42) {
         	curl_setopt($GLOBALS['ch'], CURLOPT_HTTPHEADER, array('Accept: */*','Accept-Encoding: gzip, deflate, br','Accept-Language: en-US,en;q=0.5','Cache-Control: max-age=0','Connection: keep-alive','content-type: application/json','Origin: https://www.hy-vee.com','TE: Trailers'));
 		curl_setopt($GLOBALS['ch'],CURLOPT_POSTFIELDS,'[{"operationName":"UpdateCartItemMutation","variables":{"cartItemId":"' . $cartItemId . '","cartItemInput":{"note":null,"quantity":'.$cQuantity.',"tax":0}},"query":"mutation UpdateCartItemMutation($customerId: Int!, $cartItemId: Int!, $cartItemInput: cartItemInput!) {\n  updateCartItem(customerId: $customerId, cartItemId: $cartItemId, cartItemInput: $cartItemInput) {\n    cartItemId\n    note\n    quantity\n    tax\n    __typename\n  }\n}\n"}]');
 	        curl_setopt($GLOBALS['ch'], CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0');
-        	$result = curl_exec($GLOBALS['ch']);
+	      	$result = curl_exec($GLOBALS['ch']);
 		$j = json_decode($result);
 		$GLOBALS['cartItems'][$item]['quantity'] = $j->data->updateCartItem->quantity;	
 	}
@@ -332,6 +332,11 @@ while (42 == 42) {
             $GLOBALS['searchItems'][$count]['sreID'] = $arr->sreID;
             $count++;
         }
+	if (is_numeric($item)) {
+		echo "Numeric\n";
+		echo $GLOBALS['searchItems'][0]['hierarchyID'] ."\n";
+		add(0);
+	} 
         $item = "";
     }
 

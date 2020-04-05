@@ -306,12 +306,13 @@ while (42 == 42) {
     } else {
         //search it https://www.hy-vee.com/grocery/search?search=
         $item = urlencode($command);
+        $sItem = $item;
         curl_setopt($GLOBALS['ch'], CURLOPT_URL, "https://www.hy-vee.com/grocery/search?search=".$item );
         curl_setopt($GLOBALS['ch'], CURLOPT_RETURNTRANSFER, true );
         curl_setopt($GLOBALS['ch'], CURLOPT_AUTOREFERER, true );
         curl_setopt($GLOBALS['ch'], CURLOPT_FOLLOWLOCATION, true );
         curl_setopt($GLOBALS['ch'], CURLOPT_COOKIEJAR,"cookies");
-	curl_setopt($GLOBALS['ch'], CURLOPT_POST, 0);
+	    curl_setopt($GLOBALS['ch'], CURLOPT_POST, 0);
         curl_setopt($GLOBALS['ch'], CURLOPT_COOKIEFILE, "cookies");
         curl_setopt($GLOBALS['ch'], CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0');
         $result = curl_exec($GLOBALS['ch']);
@@ -332,11 +333,13 @@ while (42 == 42) {
             $GLOBALS['searchItems'][$count]['sreID'] = $arr->sreID;
             $count++;
         }
-	if (is_numeric($item)) {
-		echo "Numeric\n";
-		echo $GLOBALS['searchItems'][0]['hierarchyID'] ."\n";
-		add(0);
-	} 
+    	if (is_numeric($sItem)) {
+            if (sizeof($item) == 1) {
+		        //echo "Numeric\n";
+		        //echo $GLOBALS['searchItems'][0]['hierarchyID'] ."\n";
+		        add(0);
+            }
+	    }
         $item = "";
     }
 
@@ -361,10 +364,10 @@ function add($item,$quantity=1) {
         if ($j->d->ItemAdded) {
             echo "Added\n";
         }
-	cart(false);
+	//cart(false);
 }
 
-function cart($slient=false) {
+function cart($silent=false) {
 	curl_setopt($GLOBALS['ch'], CURLOPT_URL, "https://www.hy-vee.com/shop/checkout/cart.aspx" );
 	curl_setopt($GLOBALS['ch'], CURLOPT_RETURNTRANSFER, true );
 	curl_setopt($GLOBALS['ch'], CURLOPT_AUTOREFERER, true );
